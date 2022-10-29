@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- fontawesome link -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- ---------------jquery-------------- -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+    
+    
+<!-- /* ///////////.....tabs html..../////////// */ -->
+
+    <nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <button class="nav-link active" id="nav-pixel-setting" data-bs-toggle="tab" data-bs-target="#nav-pixel" type="button" role="tab" aria-controls="nav-home" aria-selected="true"><i style="padding-right:5px" class="fas fa-code"></i>Pixel Settings</button>
+    <button class="nav-link" id="nav-feed-setting" data-bs-toggle="tab" data-bs-target="#nav-feed" type="button" role="tab" aria-controls="nav-profile" aria-selected="false"><i style="padding-right:5px" class="fas fa-cog"></i>Feed Settings</button>
+    <button class="nav-link" id="nav-faqs" data-bs-toggle="tab" data-bs-target="#nav-faq" type="button" role="tab" aria-controls="nav-contact" aria-selected="false"><i style="padding-right:5px" class="fas fa-question-circle"></i> FAQ's</button>
+    <button class="nav-link" id="nav-help-support" data-bs-toggle="tab" data-bs-target="#nav-help" type="button" role="tab" aria-controls="nav-contact" aria-selected="false"><i style="padding-right:5px" class="fas fa-phone-square-alt"></i> Help & Support</button>
+
+    <a href="https://apps.shopify.com/alpha-pixel-best-multiple-facebook-conversion-api#modal-show=ReviewListingModal&st_campaign=rate-app&st_source=admin&utm_campaign=installed&utm_content=contextual&utm_medium=shopify&utm_source=admin" target="_blank" style="text-decoration: none;">
+    <button class="nav-link" id="nav-write-review"  data-bs-target="#nav-review" type="button" aria-selected="false">
+    <i style="padding-right:5px" class="fas fa-star"></i>Write a Review</button>
+    </a>
+    <button class="nav-link upgrade-price" id="nav-upgrade-plan" data-bs-toggle="tab" data-bs-target="#nav-upgrade" type="button" role="tab" aria-controls="nav-contact" aria-selected="false"><i style="padding-right:5px" class="fas fa-chevron-circle-up"></i>Upgrade Plan</button>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+   <!-- /* //////////////////......pixel setting..../////////////////// */ -->
+  <div class="tab-pane fade show active" id="nav-pixel" role="tabpanel" aria-labelledby="nav-pixel-setting">
+    <div class="tab-pane active" role="tabpanel" id="tab-1">
+    <div class="row-12 switch_first">
+      <div class="row" style="height:40px;">
+
+        <div class="col-md-6 col-6">
+            <p>
+              <span class="enable-on-off" style=" float: left; font-size: 15px; font-weight: 700; margin-right: 10px;">App Status:</span>
+              <span>
+                <label class="switch">
+                <input type="checkbox"  name="status" class="kamaluddin"value="1" id="changeStatus" onclick="checkAddress(this)">
+                
+                <span class="slider round">ON</span>
+                <span class="fa fa-spin fa-spinner statusSpinner" style="position: absolute;margin-left: 50px;font-size: 25px;">
+                </span>
+                </label>
+            </span>
+            </p>
+        </div>
+
+        <div class="col-md-6 col-6 google_trans">
+          <div id="google_element" class="lang" style="float: right;">
+          </div>
+        </div>
+  </div>
+  
+</div>
+
+  <div class=" fb_pixel">
+    <div class="row">
+      <div class="col-sm-12 col-md-4 fb_pixel_left">
+        <h4 class="h_4">Enter Your Facebook Pixel<br></h4>
+        <p class="fb_p"><strong>Master Pixel:</strong> Will fire for entire store including all products.<br></p>
+        <p class="fb_p"><strong>Collection Pixel:</strong> Assigning one or more collections to a pixel to keep firing for only those products which exists in the assigned collections.<br></p>
+        <p class="fb_p"><strong>Niche Tag Pixel:</strong> Assign a pixel to a specific tag and use that tag into those products where you want to fire the pixel.<br></p>
+        <p class="fb_p"><strong><b style="color:red;">Note:</b></strong> Please enable the alpha pixels from theme editor under App embeds section. <a class="click-here-on-link" target="_blank" href="https://client426.myshopify.com/admin/themes/current/editor?context=apps&amp;activateAppId=0d83d51f-14d7-42e7-912e-c8b36d6ae278/app-embed"><b>CLICK HERE</b></a><br></p>
+        <a class="click-here-on-link" href="https://www.youtube.com/watch?v=tvRIF6Chrbo&amp;t=85s" target="_blank" class="video_link">How To Setup Facebook Pixel ?</a><br><br>
+
+      </div>
+
+
+      <div class="col-sm-12 col-md-8 fb_pixel_right" style="margin-top: 20px;">
+        <form class="col" id="pixelForm">
+          <input type="hidden" name="id" id="idInput">
+            <div class="form-group"><label class="label_w"><strong>Pixel ID</strong><br></label><input type="text" name="code" value="" id="code" class="form-group input_h" placeholder="Enter Your Facebook Pixel ID">
+            </div>
+            <div class="form-check label_check"><input class="form-check-input masterPixel" type="radio" name="type" value="master" checked="" id="formCheck-1"><label class="form-check-label check-label" for="formCheck-1">Master Pixel&nbsp;<br></label>
+            </div>
+            <div class="form-check label_check"><input class="form-check-input collectionPixel" type="radio" name="type" id="formCheck-2" value="collection"><label class="form-check-label check-label" for="formCheck-2">Collection Pixel&nbsp;<br></label>
+            </div>
+            <div class="form-check label_check"><input class="form-check-input tagPixel" type="radio" name="type" value="tag" id="formCheck-3"><label class="form-check-label check-label" for="formCheck-3">Niche Tag Pixel&nbsp;<br></label>
+            </div>
+            <br>
+<!-- ///.............Collection Pixel Dropbox........//////// -->
+            <div class="search-field-div" style="display: none;">
+              <input class="search__field" type="search" style="width: 100%; border:2px solid #007BFF; ">
+            </div>
+
+<!-- ///////.............Niche Tag Pixel Dropbox........///////// -->
+  <div class="row" id="nicheTagRow" style="display: none; width: 100%;">
+    <div class="col-2" style="width:5%;">
+          <span class="" style="border: 1px solid #007BFF;BACKGROUND: #007BFF;color:white; font-size: 22px;">
+          PX_
+          </span>
+    </div>
+          <div class="col-10">
+              <input type="text" name="tag" id="tag" class="form-group input_h1" placeholder="Assign a Tag">
+          </div>
+  
+  </div>
+    
+  <div id="check_box">
+          <div class="form-group">
+              <input onchange="valueChanged() class="coupon_question" id="platypus" type="checkbox" name="monotreme" value="platypus"/>
+              <label for="platypus">Conversion API (solution for Apple devices)</label>
+          </div>
+  </div>
+
+   <!-- //////////////////..Conversion API Dropdown Check box..///////////// -->
+  <div name="answer" id="answer" style="display: none;">
+    <div class="form-group">
+
+          <label class="face-book-tooken" for="">Facebook Access Token is Required : <a target="_blank" href="https://youtu.be/DioBgr2ALvk">How to get it?</a></label>
+
+          <input name="access_token" placeholder="Access Token" id="access_token" type="text" class="form-control input-height" style="border: 2px solid #007BFF;">
+    </div>
+    <div class="form-group">
+        <label class="face-book-tooken" for="">Test Event Code : <a target="_blank" href="https://youtu.be/iOM0PXMAd6U">How to get it?</a></label>
+        <input name="test_token" id="test_token" placeholder="Test Token" type="text" class="form-control input-height" style="border: 2px solid #007BFF;">
+        Use this if you need to test the server-side event. Remove it after testing
+    </div>
+  </div>
+
+        <div id="normalButtons" class="row" style="margin-left:0; float: left; padding-bottom:10px;">
+        <!-- Start: Hover Button 1 -->
+        <a class="btn btn-sm animated-button box_menu_3 victoria-one second" id="add" href="#">ADD THIS PIXEL</a>
+        </div>
+
+    </form>
+
+  <div class="table-responsive table pixel_table" id="dataTable" role="grid" aria-describedby="dataTable_info">
+  <table class="table my-0 list" id="dataTable">
+  <thead class="pixel_thead">
+        <tr>
+        <th>PIXELS</th>
+        <th>TAGS/COLLECTIONS</th>
+        <th>CONVERSION API</th>
+        <th>OPERATIONS</th>
+        </tr>
+  </thead>
+  <tbody class="pixelRow">                          
+    <tr id="pixelRow1466">
+    <td>
+        <span style="display:none" id="access_token1466"></span>
+        <span style="display:none" id="test_token1466"></span>
+        <span style="display:none" id="type1466">master</span>
+        <span style="display:none" id="collections1466"></span>
+        <span id="code1466">1904241839800487</span>
+    </td>    
+    <td>
+    <span>Master</span>                                  
+    </td>
+    <td class="cApiTd">
+        <i style="font-size:20px;" class="fas fa-times-circle text-danger" aria-hidden="true"></i>
+    </td>                                          
+    <td class="pixelrow-api">
+        <button  class="btn btn-default edit-btn"><i class="far fa-edit"></i>Edit</button>
+        <button  class="btn btn-default del-btn"><i class="fas fa-trash-alt"></i>Delete</button>
+
+    </td>
+    </tr>
+    <tr id="pixelRow1466">
+    <td>
+        <span style="display:none" id="access_token1466"></span>
+        <span style="display:none" id="test_token1466"></span>
+        <span style="display:none" id="type1466">master</span>
+        <span style="display:none" id="collections1466"></span>
+        <span id="code1466">1904241839800487</span>
+    </td>    
+    <td>
+    <span>Master</span>                                  
+    </td>
+    <td class="cApiTd">
+        <i style="font-size:20px;" class="fas fa-times-circle text-danger" aria-hidden="true"></i>
+    </td>                                          
+    <td class="pixelrow-api">
+        <button  class="btn btn-default edit-btn"><i class="far fa-edit"></i>Edit</button>
+        <button  class="btn btn-default del-btn"><i class="fas fa-trash-alt"></i>Delete</button>
+
+    </td>
+    </tr>
+    <tr id="pixelRow1466">
+    <td>
+        <span style="display:none" id="access_token1466"></span>
+        <span style="display:none" id="test_token1466"></span>
+        <span style="display:none" id="type1466">master</span>
+        <span style="display:none" id="collections1466"></span>
+        <span id="code1466">1904241839800487</span>
+    </td>    
+    <td>
+    <span>Master</span>                                  
+    </td>
+    <td class="cApiTd">
+        <i style="font-size:20px;" class="fas fa-times-circle text-danger" aria-hidden="true"></i>
+    </td>                                          
+    <td class="pixelrow-api">
+        <button  class="btn btn-default edit-btn"><i class="far fa-edit"></i>Edit</button>
+        <button  class="btn btn-default del-btn"><i class="fas fa-trash-alt"></i>Delete</button>
+
+    </td>
+    </tr>
+    <tr id="pixelRow1466">
+    <td>
+        <span style="display:none" id="access_token1466"></span>
+        <span style="display:none" id="test_token1466"></span>
+        <span style="display:none" id="type1466">master</span>
+        <span style="display:none" id="collections1466"></span>
+        <span id="code1466">1904241839800487</span>
+    </td>    
+    <td>
+    <span>Master</span>                                  
+    </td>
+    <td class="cApiTd">
+        <i style="font-size:20px;" class="fas fa-times-circle text-danger" aria-hidden="true"></i>
+    </td>                                          
+    <td class="pixelrow-api">
+        <button  class="btn btn-default edit-btn"><i class="far fa-edit"></i>Edit</button>
+        <button  class="btn btn-default del-btn"><i class="fas fa-trash-alt"></i>Delete</button>
+
+    </td>
+    </tr>   
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+          <a target="_blank" href="https://www.facebook.com/alphapixelconversionapiforshopifyapp" style="position:fixed;bottom:5px;right:5px;z-index:+1;">
+          <img class="facebook-chat" src="https://ps.w.org/facebook-messenger-customer-chat/assets/icon-256x256.png?rev=2398892" width="60px">
+          </a>
+          <span class="tooltipp" id="hideDiv" style="">Hi! How can we help you ?</span>
+        
+</div>
+    
+    <div class="recommended-apps-container">
+      <h4 style="padding-top:10px;">Recommended Shopify Apps</h4>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+ <div class="row recommended-apps-main-content">
+        <div class="col-12 col-sm-6 col-md-6 recommended-apps-items">
+          <i class="fab fa-app-store-ios"></i>
+          <h5><b>ALPHA Currency Converter<i class="fas fa-star" style="color: yellow; font-size:19px; padding-left:5px;"><span>5.0</span></i></b></h5>
+          
+          <p><strong> Checkout Currency Converter + Location Based Currency Switcher.</strong></p>
+          <span>First Currency converter works perfectly with Shopify Checkout Pages
+If you want to maximize international sales, it is very important to provide a shopper-friendly, localized user experience on your shopify store. Customers are more likely to make a purchase if they are presented with their preferred currency.</span><br>
+          <a target="_blank" class="try-it-free-btn" href="https://apps.shopify.com/alpha-currency-converter?utm_source=shopify&utm_medium=app+suggestion&utm_campaign=reference">Try it Free Now</a>
+      </div>
+        <div class="col-12 col-sm-6 col-md-6 recommended-apps-items-2">
+          <i class="fab fa-app-store-ios"></i>
+          <h5><b>ALPHA Upsell Suite<i class="fas fa-star" style="color: yellow; font-size:19px; padding-left:5px;"><span>5.0</span></i></b></h5>
+          <p><strong> Skyrocket your sales with ALPHA upsell.The one click upsell & cross sell app for your product pages.</strong></p>
+          <span>ALPHA will increase your store's sales and average order value using targeted upsells. By offering more of what the customer may be interested in, you are improving the customer's shopping experience as well as increasing your revenue.</span><br>
+          <a target="_blank" class="try-it-free-btn" href="https://apps.shopify.com/alpha-upsell?utm_source=shopify&utm_medium=app+suggestions&utm_campaign=reference">Try it Free Now</a>
+        </div>
+        </div>
+          </div>
+    <div class="carousel-item">
+ <div class="row recommended-apps-main-content">
+        <div class="col-12 col-sm-6 col-md-6 recommended-apps-items">
+          <i class="fab fa-app-store-ios"></i>
+          <h5><b>Frequently Bought Together 2.0<i class="fas fa-star" style="color: yellow; font-size:19px; padding-left:5px;"><span>5.0</span></i></b></h5>
+          <p><strong> Instantly add Frequently Bought Together to your store.AI-powered product recommendation with custom tuning
+
+</strong></p>
+          <span>Related and recommended products are always the best marketing strategy to grab customers’ attention for staying them longer on your website and convince them to more purchase. There is no doubt that 10 to 20% of sales revenue generates from the help of upsells and cross-sell products.</span><br>
+          <a target="_blank" class="try-it-free-btn" href="https://apps.shopify.com/alpha-frequently-bought-together?utm_source=shopify&utm_medium=app+suggestions&utm_campaign=reference">Try it Free Now</a>
+      </div>
+        <div class="col-12 col-sm-6 col-md-6 recommended-apps-items-2">
+          <i class="fab fa-app-store-ios"></i>
+          <h5><b>ALPHA Google Shopping Feed<i class="fas fa-star" style="color: yellow; font-size:19px; padding-left:5px;"><span>5.0</span></i></b></h5>
+          <p><strong> Sync and manage product feed for Google Shopping in one click.</strong></p>
+          <span>Sync once and leave the rest to the app. It will automatically sync the product's data (like product title, price, variants, etc) whenever you update the product in your Shopify store.No need to submit the Feed URL and set the fetching frequency and other settings.</span><br>
+          <a target="_blank" class="try-it-free-btn" href="https://apps.shopify.com/alpha-google-shopping-feed?utm_source=shopify&utm_medium=app+suggestion&utm_campaign=reference">Try it Free Now</a>
+        </div>
+        </div>
+          </div>
+    <div class="carousel-item">
+ <!-- <div class="row recommended-apps-main-content">
+        <div class="col-12 col-sm-6 col-md-6 recommended-apps-items">
+          <i class="fab fa-app-store-ios"></i>
+          <h5><b>ALPHA Currency Converter<i class="fas fa-star" style="color: yellow; font-size:19px; padding-left:5px;"><span>5.0</span></i></b></h5>
+          <p><strong> Checkout Currency Converter + Location Based Currency Switcher.</strong></p>
+          <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste totam dolor in magnam perspiciatis, soluta laborum dignissimos cumque deleniti omnis consectetur. Suscipit expedita dolor natus dignissimos autem eveniet obcaecati non!</span><br>
+          <a target="_blank" class="try-it-free-btn" target="_blank" href="https://apps.shopify.com/alpha-currency-converter?utm_source=shopify&utm_medium=app+suggestion&utm_campaign=reference">Try it Free Now</a>
+      </div>
+        <div class="col-12 col-sm-6 col-md-6 recommended-apps-items-2">
+          <i class="fab fa-app-store-ios"></i>
+          <h5><b>ALPHA Upsell Suite<i class="fas fa-star" style="color: yellow; font-size:19px; padding-left:5px;"><span>5.0</span></i></b></h5>
+          <p><strong> Frequently Bought together, Upsell & Cross-Sell, Post Purchase.</strong></p>
+          <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste totam dolor in magnam perspiciatis, soluta laborum dignissimos cumque deleniti omnis consectetur. Suscipit expedita dolor natus dignissimos autem eveniet obcaecati non!</span><br>
+          <a target="_blank" class="try-it-free-btn" href="https://apps.shopify.com/alpha-upsell?utm_source=shopify&utm_medium=app+suggestions&utm_campaign=reference">Try it Free Now</a>
+        </div>
+        </div> -->
+          </div>
+  </div>
+    <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button> -->
+  </div>
+  
+</div>
+
+
+    </div>
+
+  </div>
+      
+ 
+   <!-- /* /////////////......pixel setting end..../////////////// */ -->
+
+   <!-- /* //////////////////......feed setting..../////////////////// */ -->
+  <div class="tab-pane fade" id="nav-feed" role="tabpanel" aria-labelledby="nav-feed-setting">
+                <div class="row feed-setting-main-div">
+                <div class="col-sm-12 col-md-4 product_feed_left">
+                    <h4 class="h_4">Product Feed URL<br></h4>
+                    <p class="fb_p">You can populate your Facebook product catalog feed through this URL<br></p>
+                </div>
+                
+                    <div class="col-sm-12 col-md-8  product_feed_right" id="copy_div">
+                        <input  type="text" class="form-group input_h" value="https://alpha-pixel-tracking-app.com/client426.myshopify.com/feeds?collection=all&amp;category=General&amp;" id="myInput">                     
+                        <button class="copy-button" onclick="myFunction()">Copy Link<i class="fas fa-link p-2"></i></button>
+
+                    </div>
+        <div class="col-12 product_feed">
+            <div class="row">
+                <div class="col-sm-12 col-md-4 product_feed_left">
+                    <h4 class="h_4">Configuration<br></h4>
+                    <a href="https://www.youtube.com/watch?v=Wh08kbgBsBE&amp;t=26s" target="_blank" class="video_link">How To Setup Catalog And Feed ?</a>
+                </div>
+                <div class="col-sm-12 col-md-8 product_feed_right check_p">
+                    <form novalidate="">
+                        <div class="form-group Title-and-Description">
+                            <label for="feed"><b>Set Lowercase for Title and Description</b></label>
+                            <div class="checkbox">
+                                <label class="description-lable">
+                                    <input style="margin-right: 3px;" id="title_caps" name="title_caps" type="checkbox" checked=""> Convert product feed titles and descriptions to lowercase to fix casing errors
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group Title-and-Description">
+                            <label for="feed"><b>Include Variants</b></label>
+                            <div class="checkbox">
+                                <label class="description-lable">
+                                    <input style="margin-right: 8px;" id="include_variants" name="include_variants" type="checkbox">Product feed to contain all product variants
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group Title-and-Description">
+                            <label for="feed"><b>Product Images</b></label>
+                            <div class="checkbox">
+                                <label class="description-lable">
+                                    <input style="margin-right: 8px;" id="crop_images" name="crop_images" type="checkbox" checked="">Auto Crop and Centre Images to 600x600
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  </div>
+   <!-- /* //////////////////......feed setting end..../////////////////// */ -->
+
+   <!-- /* //////////////////......FAQ's..../////////////////// */ -->
+  <div class="tab-pane fade" id="nav-faq" role="tabpanel" aria-labelledby="nav-faqs">
+
+    <div class=" col-12 row faq-content">
+      <!-- /////////////////1//////////////// -->
+
+<div>
+  <input type="checkbox" id="question1" name="q"  class="questions">
+  <div class="plus">+</div>
+  <label for="question1" class="question">     
+I’m a Beginner in Facebook advertising.what Do i Have to Do?
+    </label>
+
+  <div class="answers">
+    <div class="panel-body panel_h4">
+    You can get <b>Pixels</b> in your Facebook business manager, For Facebook Pixel You Need to Create a Business Manager.
+    <h4><b>Here is a Simple Guide for you.</b></h4>
+    <ol type="1" class="ol_style">
+        <li>Make Sure Your Facebook <b>Profile Login.</b> </li>
+        <li>Go to <a href="https://business.facebook.com/overview">business.facebook.com/overview.</a></li>
+        <li>Click <b>Create Account.</b><br>
+        <img src="assets/img/img_1.jpg" class="center"></li>
+        <li>Enter a name for <b>your business,</b> your name and work email address and <b>click Next.</b><br>
+        <img src="assets/img/img_2.jpg" class="center"></li>
+        <li>Enter your business details and click <b>Submit.</b><br>
+        <img src="assets/img/img_3.jpg" class="center"></li>
+        <h4 class="vid">VIDEO GUIDE HERE</h4>
+        <iframe width="70%" height="315" src="https://www.youtube.com/embed/v3dxq9f7fy0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="center_vid"></iframe>
+    </ol>
+</div>
+  </div>
+</div>
+      <!-- /////////////////2//////////////// -->
+
+<div>
+  <input type="checkbox" id="question2" name="q"  class="questions">
+  <div class="plus">+</div>
+  <label for="question2" class="question">
+
+     Create And Install a Facebook Pixel
+    </label>
+
+  <div class="answers">
+    <div class="panel-body panel_h4">
+      <ol type="1" class="ol_style">
+          <li>Go to <a href="https://business.facebook.com/">Business Settings.</a></li>
+          <li>Click <b>Data Sources</b> and Below <b>Pixels.</b></li>
+          <li>Click <b>+ Add.</b><br>
+          <img src="assets/img/img_4.jpg" class="center"></li>
+          <li>Give Name To your <b>Pixel ID.</b><br>
+          <img src="assets/img/img_5.jpg" class="center"></li>
+          <li>You Can Create <b>100</b> Facebook Pixels in Your Business Manager.<br>
+          <img src="assets/img/img_6.jpg" class="center"></li>
+          <li>Video Guide:</li>
+          <iframe width="70%" height="315" src="https://www.youtube.com/embed/ddANI3tr0dE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="center_vid"></iframe>
+          <li>Copy Your Facebook Pixel ID and Paste Into <b>ALPHA Pixel App.</b><br>
+          <img src="assets/img/img_7.jpg" class="center"></li>
+          <h4 class="vid">VIDEO GUIDE HERE</h4>
+          <iframe width="70%" height="315" src="https://www.youtube.com/embed/hGcLtR-l-8g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="center_vid"></iframe>
+      </ol>
+  </div>
+  </div>
+
+</div>
+      <!-- /////////////////3//////////////// -->
+
+<div>
+  <input type="checkbox" id="question3" name="q"  class="questions">
+  <div class="plus">+</div>
+  <label for="question3" class="question">
+    How to setup your Ads Manager account ?
+    </label>
+
+  <div class="answers">
+<div class="panel-body panel_h4">
+      <h4><b>Steps to add an ad account in Business Manager:</b></h4>
+      <ol type="1" class="ol_style">
+          <li>Go to <a href="https://business.facebook.com/">Business Settings.</a></li>
+          <li>Click <b>Accounts </b>and click <b>Ad Accounts.</b></li>
+          <li>Click<b> + Add.</b></li>
+          <li>Create a <b>new ad account.</b><br>
+          <img src="assets/img/img_8.jpg" class="center"></li>
+          <li> Fill Up Your Details<br>
+          <img src="assets/img/img_9.jpg" class="center"></li>
+          
+          <h4 class="vid">VIDEO GUIDE HERE</h4>
+          <iframe width="70%" height="315" src="https://www.youtube.com/embed/zJNEpbC6v0c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="center_vid"></iframe>
+      </ol>
+  </div>
+  </div>
+
+</div>
+      <!-- /////////////////4//////////////// -->
+
+<div>
+  <input type="checkbox" id="question4" name="q"  class="questions">
+  <div class="plus">+</div>
+  <label for="question4" class="question">
+
+  How do i check the Pixel app is working properly on my store?
+
+    </label>
+
+  <div class="answers">
+    <div class="panel-body panel_h4">
+        If you would like to check, please use the <b>Facebook pixel helper</b> Chrome browser extension to check that events are firing correctly on your website.
+            <h4 class="vid">VIDEO GUIDE HERE</h4>
+        <iframe width="70%" height="315" src="https://www.youtube.com/embed/aklYuHEkkBg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="center_vid"></iframe>
+        </div>
+  </div>
+
+</div>
+      <!-- /////////////////5//////////////// -->
+
+<div>
+  <input type="checkbox" id="question5" name="q"  class="questions">
+  <div class="plus">+</div>
+  <label for="question5" class="question">
+
+  Do i need to do something before Using this app?
+  
+    </label>
+
+  <div class="answers">
+    <div class="panel-body">
+
+      Yes, please remove your Facebook Pixel ID from the Preferences Page on your Shopify Store if you previously added it in there, and remove it from any other pixel tracking app you might have previously used. You will need to use only <b>ALPHA Pixel App</b> to manage your Facebook pixels. If you use other tools at the same time, you will have inaccurate reporting.
+
+      <iframe width="70%" height="315" src="https://www.youtube.com/embed/IYvH0WUGrYY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="center_vid"></iframe>
+      </div>
+  </div>
+
+</div>
+      <!-- /////////////////6//////////////// -->
+
+<div>
+  <input type="checkbox" id="question6" name="q"  class="questions">
+  <div class="plus">+</div>
+  <label for="question6" class="question">
+     Can I use this app in addition to Shopify native Facebook pixel integration (in preferences section)?
+    </label>
+
+  <div class="answers">
+<div class="panel-body panel_h4">
+      NO, You need to put ALL your pixels into <b>ALPHA Pixel</b> and use ONLY <b>ALPHA Pixel Tracking</b> to manage all your pixels. Otherwise, you will have duplicates and inaccurate reporting.
+
+      </div>
+  </div>
+
+</div>
+      <!-- /////////////////7//////////////// -->
+
+<div>
+  <input type="checkbox" id="question7" name="q"  class="questions">
+  <div class="plus">+</div>
+  <label for="question7" class="question">
+
+      Is shipping cost included when reporting the Purchase Value.?
+    </label>
+
+  <div class="answers">
+<div class="panel-body panel_h4">
+      Yes Shipping cost is included in the purchase value in order to allow your Facebook Ads manager to determine the real <b>ROI</b> of your campaigns and adsets.
+      </div>
+  </div>
+
+</div>
+      <!-- /////////////////8//////////////// -->
+
+<div>
+  <input type="checkbox" id="question8" name="q"  class="questions">
+  <div class="plus">+</div>
+  <label for="question8" class="question">
+    Do i need to add any code into my theme?
+    </label>
+
+  <div class="answers">
+<div class="panel-body panel_h4">
+    No, you don't need to add any code to your theme.
+    </div>
+  </div>
+
+</div>
+      <!-- /////////////////9//////////////// -->
+
+<div>
+  <input type="checkbox" id="question9" name="q"  class="questions">
+  <div class="plus">+</div>
+  <label for="question9" class="question">
+
+      How many Facebook Pixels can i add using this app?
+    </label>
+
+  <div class="answers">
+   <div class="panel-body panel_h4">
+      We have an unlimited number of Master/backup/collection/Tag Pixels that can be added
+      </div>
+  </div>
+
+</div>
+      <!-- /////////////////10//////////////// -->
+
+<div>
+  <input type="checkbox" id="question10" name="q"  class="questions">
+  <div class="plus">+</div>
+  <label for="question10" class="question">
+
+      My Pixel is not firing in the Checkout pages, is this Normal?
+    </label>
+
+  <div class="answers">
+    <div class="panel-body panel_h4">
+      Yes, this is absolutely normal. Shopify apps can't make changes to the checkout pages. This will not affect your pixels' reporting and optimization.
+      </div>
+  </div>
+
+</div>
+      <!-- /////////////////11//////////////// -->
+
+<div>
+  <input type="checkbox" id="question11" name="q"  class="questions">
+  <div class="plus">+</div>
+  <label for="question11" class="question">
+     Where can i check the events and values that my Facebook Pixel is reporting?
+    </label>
+
+  <div class="answers">
+   <div class="panel-body panel_h4">
+        All events and values that your pixels send to Facebook will appear in your <b>Event Manager</b> attributed to their respective campaigns.
+        <h4 class="vid">VIDEO GUIDE HERE</h4>
+        <iframe width="70%" height="315" src="https://www.youtube.com/embed/vAXh_wVWlmI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="center_vid"></iframe>
+        </div>
+  </div>
+
+</div>
+      <!-- /////////////////12//////////////// -->
+
+<div>
+  <input type="checkbox" id="question12" name="q"  class="questions">
+  <div class="plus">+</div>
+  <label for="question12" class="question">
+
+      How  can i add Pixel to Specific Collection?
+    </label>
+
+  <div class="answers">
+   <div class="panel-body panel_h4">
+      Paste Your Pixel click on <b>Collection_Pixel</b> and choose your desired collection.
+      <h4 class="vid">VIDEO GUIDE HERE</h4>
+      <iframe width="70%" height="315" src="https://www.youtube.com/embed/GL26CjSJLro" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="center_vid"></iframe>
+      </div>
+  </div>
+
+</div>
+      <!-- /////////////////13//////////////// -->
+
+<div>
+  <input type="checkbox" id="question13" name="q"  class="questions">
+  <div class="plus">+</div>
+  <label for="question13" class="question">
+    How to add TAG Pixel to products?
+    </label>
+
+  <div class="answers">
+    <div class="panel-body panel_h4">
+        As usual, paste your Pixel and click on Niche TAG Pixel, Write your <b>TAG name</b>. Go to Product Menu choose your desired product and add <b>Tag</b> into the product tag section and save it.
+        <h4 class="vid">VIDEO GUIDE HERE</h4>
+        <iframe width="70%" height="315" src="https://www.youtube.com/embed/k1u65QNFQDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="center_vid"></iframe>
+        </div>
+  </div>
+
+</div>
+      <!-- /////////////////14//////////////// -->
+
+<div>
+  <input type="checkbox" id="question14" name="q"  class="questions">
+  <div class="plus">+</div>
+  <label for="question14" class="question">
+
+      What About Facebook Product Feed Catalog Generation?
+    </label>
+
+  <div class="answers">
+    <div class="panel-body panel_h4">
+      You can use ALPHA Facebook product feed generation that is compatible with Shopify. ALPHA  product feed generated should send the Shopify product data to Facebook.
+      </div>
+  </div>
+
+</div>
+      <!-- /////////////////15//////////////// -->
+
+<div>
+  <input type="checkbox" id="question15" name="q"  class="questions">
+  <div class="plus">+</div>
+  <label for="question15" class="question">
+
+      Where and how do I upload my ALPHA product feed URL?
+    </label>
+
+  <div class="answers">
+    <div class="panel-body panel_h4">
+    Just add the feed our app generated to your Facebook product catalog.
+    <h4><b>Its really simple to install actually - just a couple of steps:</b></h4>
+    <ol type="1" class="ol_style">
+        <li>Select or Create your Catalogue in the the Catalogue Manager<br>
+            <ul>
+            <li>Go to DATA Sources</li>
+            <li>Click on Catalogues </li>
+            <li>Click on +ADD </li>
+            <li>Create a New Catalogue</li>
+            </ul>
+            <img src="assets/img/img_10.jpg" class="center">
+        </li>
+        <li>After Creating Catalogue you need to upload shopify product.Click on <b>Data Sources</b></li>
+        <li>Select <b>'Use bulk upload'</b><br>
+        <img src="assets/img/img_11.jpg" class="center"></li>
+        <li>Paste Your ALPHA <b>Product Feed URL</b> ,don’t setup password<br>
+        <img src="assets/img/img_12.jpg" class="center"></li>
+        <li>I choose Weekly schedule updates, but it's depend on your business<br>
+        <img src="assets/img/img_13.jpg" class="center"></li>
+        <li>Make Sure select your shopify store Default Currency<br>
+        <img src="assets/img/img_14.jpg" class="center"></li>
+        <li>Its in in processing to sync product into to your Facebook Catalogue<br>
+        <img src="assets/img/img_15.jpg" class="center"></li>
+        <li>After Completed Upload you can see Your Products<br>
+        <img src="assets/img/img_16.jpg" class="center"></li>
+        <h4 class="vid">VIDEO GUIDE HERE</h4>
+        <iframe width="70%" height="315" src="https://www.youtube.com/embed/G2orhL1gItc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="center_vid"></iframe>
+    </ol>
+</div>
+  </div>
+
+</div>
+<!-- //////////////////////////16//////////////////////// -->
+<div>
+  <input type="checkbox" id="question16" name="q"  class="questions">
+  <div class="plus">+</div>
+  <label for="question16" class="question">
+
+      How to Uninstall ALPHA Pixel App?
+    </label>
+
+  <div class="answers">
+   <div class="panel-body panel_h4">
+  <ol type="1" class="ol_style">
+      <li>In a shopify app section, you can delete the app easily.<br>
+      <img src="assets/img/img_17.jpg" class="center"></li>
+      <li>But if you see the Pixel app is still working or conflicting with another app you can follow these instructions.<br> Go to Online Store  ⇒ Themes ⇒ Actions ⇒ Edit <br>
+      <img src="assets/img/img_18.jpg" class="center"></li>
+      <li>Search “alpha” you will get our snippet just open our snippet file and click on delete.<br>
+      <img src="assets/img/img_19.jpg" class="center"></li>
+      <li>Click on the Layout ⇒ theme.liquid before closing of  you can see our <b>{% include “alpha_pixel” %}</b>  delete that one too.<br>
+      <img src="assets/img/img_20.jpg" class="center"></li>
+      <h4 class="vid">VIDEO GUIDE HERE</h4>
+      <iframe width="70%" height="315" src="https://www.youtube.com/embed/Qr9qt_w-vaY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="center_vid"></iframe>
+  </ol>
+</div>
+  </div>
+
+</div>
+<!-- ///////////////////...faq's text end...////////////// -->
+  </div>
+   </div>
+   <!-- /* //////////////////......FAQ's end..../////////////////// */ -->
+   <!-- /* //////////////////......help and support..../////////////////// */ -->
+  <div class="tab-pane fade" id="nav-help" role="tabpanel" aria-labelledby="nav-help-support">
+    <div class="help-and-support" style=" display: flex; justify-content: space-around; flex-wrap: wrap; padding-top: 50px; height: 100vh; font-family:Open Sans" >
+  <a href="https://www.facebook.com/alphapixelconversionapiforshopifyapp" class="card education" target="_blank">
+     <div class="overlay"></div>
+        <div class="circle">
+          <img src="Facebook-Logo-Square-768x768.png" alt="" srcset="">
+        </div>
+          <p>Facebook</p>
+  </a>
+
+<a href="https:////web.whatsapp.com/send?phone=923143216236&amp;text=client426.myshopify.com%20Needs%20Help%20in%20Facebook%20Pixel%20?%20" class="card credentialing" target="_blank">
+  <div class="overlay"></div>
+    <div class="circle">
+      <img src="whatsapp (1).png"> 
+    </div>
+      <p>Whatsapp</p>
+</a>
+
+<a href="https://calendly.com/meetingwithalphaexpert/30min?month=2022-01" class="card human-resources" target="_blank">
+  <div class="overlay"></div>
+    <div class="circle">      
+      <img src="kisspng-meeting-conference-centre-office-agenda-board-of-d-5af9e8b6eb6ec5.8006692015263274789643-modified.png" alt="" srcset="">
+    </div>
+      <p>Book a Meeting</p>
+</a>
+
+</div>
+    
+  </div>
+   <!-- /* //////////////////......help and support end..../////////////////// */ -->
+   <!-- /* //////////////////......upgrade plan..../////////////////// */ -->
+
+  <div class="tab-pane fade" id="nav-upgrade" role="tabpanel" aria-labelledby="nav-upgrade-plan">
+    
+<div class="wrapper upgrade-plan-main-div">
+  <div class="pricing-table gprice-single">
+    <div class="head">
+      <h4 class="title">Basic</h4>
+    </div>
+    <div class="content">
+      <div class="price">
+        <h1>$9.99</h1>
+      </div>
+      <ul class="pricing-list">
+        <li>2 Pixel Id's</li>
+        <li>1000 Product Catalog</li>
+        <li>Instant Feed Update</li>
+        <li>Conversion Api Supported</li>
+        <li>Email Support</li>
+        <li><del>Technical Live Support</del></li>
+      </ul>
+      <div class="sign-up">
+        <a href="#" class="btn bordered radius">Select Plan</a>
+      </div>
+    </div>
+  </div>
+  <div class="pricing-table gprice-single">
+    <div class="head">
+      <h4 class="title">Standard</h4>
+    </div>
+    <div class="content">
+      <div class="price">
+        <h1>$19.99</h1>
+      </div>
+      <ul class="pricing-list">
+        <li>5 Pixel Id's</li>
+        <li>5000 Product Catalog</li>
+        <li>Instant Feed Update</li>
+        <li>Server Side Events</li>
+        <li>Conversion Api Supported</li>
+        <li>Technical Live Support</li>
+
+      </ul>
+      <div class="sign-up">
+        <a href="#" class="btn bordered radius">Select Plan</a>
+      </div>
+    </div>
+  </div>
+  <div class="pricing-table gprice-single">
+    <div class="head">
+      <h4 class="title">Premium</h4>
+    </div>
+    <div class="content">
+      <div class="price">
+        <h1>$29.99</h1>
+      </div>
+      <ul class="pricing-list">
+        <li>Unlimited FB Pixel Id's</li>
+        <li>Unlimited Product Catalog</li>
+        <li>Instant Feed Update</li>
+        <li>Server Side Events</li>
+        <li>Conversion Api Supported</li>
+        <li>One To One Consultation</li>
+      </ul>
+      <div class="sign-up">
+        <a href="#" class="btn bordered radius">Select Plan</a>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+   <!-- /* //////////////////......upgrade plan end..../////////////////// */ -->
+
+
+<!-- /* ///////////.....tabs html end..../////////// */ -->
+
+<!-- ............/////..google translate JS../////////////........ -->
+<script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate" ></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <script src="Dashboard.js"></script>
+  </body>
+</html>
